@@ -1,6 +1,7 @@
 # Importa las librerías necesarias
 from flask import Flask, request, jsonify
 import subprocess
+import os
 
 # Crea una instancia de la aplicación Flask
 app = Flask(__name__)
@@ -10,6 +11,9 @@ app = Flask(__name__)
 def run_command():
     # Obtén el JSON enviado con la petición
     data = request.get_json()
+
+    # Cambio la ruta al disco D, porque quiero que trabaje en ese
+    os.chdir("D:/")
 
     # Extrae el comando que viene en el JSON
     command = data.get('command')
